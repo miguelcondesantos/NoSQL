@@ -1,6 +1,4 @@
-# Aprendendo NoSQL
+# Redis 🍂
+**Este subdiretório contém o código Python esponsável por gerenciar dados entre os bancos de dados MongoDB e Redis.**</br>
 >[!NOTE]
->**_Repositório criado com o intuito de guardar projetos sobre Banco de Dados não Relacionais_**
-
-## Projetos🗃️
-- [MongoDB](https://github.com/miguelcondesantos/NoSQL/tree/MongoDB) 🍃
+>**_Link direto para o subdiretório_** [Redis](https://github.com/miguelcondesantos/NoSQL/tree/Redis/Redis)
