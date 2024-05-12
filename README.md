@@ -11,7 +11,7 @@
 >[!NOTE]
 >**_Link direto para o subdiretório_** [Documentos](https://github.com/miguelcondesantos/NoSQL/tree/MongoDB/Documentos)
 
-# CRUD 🆕📖⬆️📋
+# CRUD 🆕📖⬆️🗑️
 **Este subdiretório contém o código Python responsável pelas operações CRUD (Create, Read, Update, Delete) para interagir com o banco de dados NoSQL MongoDB.**</br>
 >[!NOTE]
 >**_Link direto para o subdiretório_** [CRUD](https://github.com/miguelcondesantos/NoSQL/tree/MongoDB/CRUD)
