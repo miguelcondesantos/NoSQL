@@ -6,7 +6,7 @@
 ### 2. PDF de Prints do Banco de Dados na Forma Não Relacional:
   - Estes arquivso PDF contém prints do banco de dados na forma não relacional. Os prints incluiem exemplos de documentos, coleções ou outras estruturas típicas de um banco de dados NoSQL.
 ### 3. Documentos sobre Vantagens e Desvantagens de Cada Modelo:
-  - Documentos que discutem as vantagens e desvantagens dos modelos de banco de dados utilizados. Eles podem incluir análises comparativas entre bancos de dados relacionais e não relacionais, bem como recomendações para casos de uso específicos.</br>
+  - Documentos que discutem as vantagens e desvantagens dos modelos de banco de dados utilizados. Incluem análises comparativas entre bancos de dados relacionais e não relacionais.</br>
 
 >[!NOTE]
 >**_Link direto para o subdiretório_** [Documentos](https://github.com/miguelcondesantos/NoSQL/tree/MongoDB/Documentos)
