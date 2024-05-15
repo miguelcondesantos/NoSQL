@@ -828,7 +828,6 @@ def moverProdutoRedis():
         conR.delete(chave)
         conR.set(chave, json.dumps(produto, default=str))
         print(f"Produto ID: {produto_id} movido para o Redis")
-        mycol.delete_one({"_id": produto_id})
     else:
         print("Produto não encontrado no MongoDB")
 
@@ -877,9 +876,8 @@ def moverProdutoMongoDB():
     produto = json.loads(produto_json)
 
     mycol = mydb.produto
-    del produto['_id']
     produto['_id'] = produto_id
-    mycol.insert_one(produto)
+    mycol.update_one({"_id": produto_id}, {"$set": produto}, upsert=True)
     conR.delete(chave)
 
     print(f"Produto ID: {produto_id} movido de volta para o MongoDB e removido do Redis.")
@@ -902,7 +900,6 @@ def moverUsuarioRedis():
         conR.delete(chave)
         conR.set(chave, json.dumps(usuario, default=str))
         print(f"Usuário ID: {usuario_id} movido para o Redis")
-        mycol.delete_one({"_id": usuario_id})
     else:
         print("Usuário não encontrado no MongoDB")
 
@@ -950,12 +947,11 @@ def moverUsuarioMongoDB():
     usuario = json.loads(usuario_json)
 
     mycol = mydb.usuario
-    del usuario['_id']
     usuario['_id'] = usuario_id
-    mycol.insert_one(usuario)
+    mycol.update_one({"_id": usuario_id}, {"$set": usuario}, upsert=True)
     conR.delete(chave)
 
-    print(f"Produto ID: {usuario_id} movido de volta para o MongoDB e removido do Redis.")
+    print(f"Usuario ID: {usuario_id} movido de volta para o MongoDB e removido do Redis.")
 
 
 def loginUsuario():
@@ -964,17 +960,25 @@ def loginUsuario():
 
     usuario_email = input("Digite o email do usuário: ")
     usuario_senha = input("Digite a senha do usuário: ")
-    
+
     usuario = mycol.find_one({"email": usuario_email, "senha": usuario_senha})
-    
+
     if usuario:
-        if usuario_senha == usuario['senha'] and usuario_senha == usuario['senha']:
+        if usuario_senha == usuario['senha'] and usuario_email == usuario['email']:
+            usuario_id = str(usuario['_id'])
+
+            if conR.exists(usuario_id):
+                print("Usuário já está logado")
+                return None
+            
             token = secrets.token_hex(16)
-            conR.set(token, str(usuario['_id']))
+            conR.set(usuario_id, token)
+            conR.expire(token, 10)
+
             print(f"Login concluído. Token: {token}")
             return token
         else:
-            print("Senha ou email incorretos")
+            print("Senha incorreta")
     else:
         print("Usuário não encontrado")
 
