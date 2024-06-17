@@ -10,3 +10,4 @@
 ## Projetos🗃️
 - [MongoDB](https://github.com/miguelcondesantos/NoSQL/tree/MongoDB) 🍃
 - [Redis](https://github.com/miguelcondesantos/NoSQL/tree/Redis) 🚀
+- [Cassandra](https://github.com/miguelcondesantos/NoSQL/tree/Cassandra) 👁️
